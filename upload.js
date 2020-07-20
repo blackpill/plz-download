@@ -32,6 +32,7 @@ async function recursivelyUpload(basepath){
     })
     for (var file of dir){
         var subPath = path.join(basepath, file.name)
+		console.log('processing dir'+subPath)
         if(file.isDirectory()){
             await recursivelyUpload(subPath)
         }else{
