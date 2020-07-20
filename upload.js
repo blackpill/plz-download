@@ -19,6 +19,8 @@ const davPath = process.env.dav_url
 const client = createClient(
     davPath,{username, password}
 );
+console.log('davPath:'+davPath)
+console.log('username:'+username)
 var downloadPath = path.join(__dirname, 'Download');
 
 async function uploadFile(filePath,filename){
@@ -32,7 +34,7 @@ async function recursivelyUpload(basepath){
     })
     for (var file of dir){
         var subPath = path.join(basepath, file.name)
-		console.log('processing dir'+subPath)
+		console.log('processing dir:'+subPath)
         if(file.isDirectory()){
             await recursivelyUpload(subPath)
         }else{
